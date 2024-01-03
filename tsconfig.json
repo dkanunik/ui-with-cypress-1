@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "outDir": "_dist",
+    "baseUrl": "src",
+    "incremental": true,
+    "tsBuildInfoFile": "./_dist/.tsbuildinfo",
+    "paths": {
+      "*": [
+        "*"
+      ]
+    },
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths",
+        "exclude": [ "**/node_modules/**" ]
+      }
+    ],
+    "types": [
+      "cypress",
+      "@types/chai",
+      "@types/mocha",
+      "node",
+    ],
+    "inlineSourceMap": true,
+    "target": "ES2019",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": [
+      "dom",
+      "ES2023"
+    ],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "core",
+    "scripts"
+  ]
+}

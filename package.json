@@ -1,0 +1,28 @@
+{
+  "name": "init-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:ui": "cypress run --spec src/tests/**/*.test.ts --browser chrome",
+    "allure-report-generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
+    "allure-report-open": "npm run allure-report-generate && allure open ./reports/allure-report",
+    "allure-report-clear": "rm -R -f ./reports/allure-report/* && rm -R -f ./reports/allure-results/*",
+    "pretest":"npm run allure:clear",
+    "posttest":"npm run allure-report-open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.1",
+    "cypress": "^13.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.25.0",
+    "mocha-allure-reporter": "^1.4.0"
+  }
+}
