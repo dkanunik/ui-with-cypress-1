@@ -1,6 +1,7 @@
 import AbstractComponent from "../types/AbstractComponent";
+import {TIMEOUT_30_SECONDS} from "../../utils/waits/timeouts";
 
-class SearchInitComponent extends AbstractComponent{
+class SearchInitComponent extends AbstractComponent {
 
     getSearchInput() {
         return cy.get('input#yfin-usr-qry');
@@ -15,7 +16,7 @@ class SearchInitComponent extends AbstractComponent{
     }
 
     getSuggestSymbolList() {
-        return cy.get('div[data-id="search-assist-input-sugglst"] ul li');
+        return cy.get('div[data-id="search-assist-input-sugglst"] ul li', {timeout: TIMEOUT_30_SECONDS});
     }
 }
 

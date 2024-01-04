@@ -9,7 +9,7 @@ module.exports = defineConfig({
 
   e2e: {
     baseUrl: 'https://finance.yahoo.com/',
-    supportFile: "src/support/*.support.{js,jsx,ts,tsx}",
+    supportFile: "src/support/index.ts",
     specPattern: "src/tests/**/*.test.{js,jsx,ts,tsx}",
     responseTimeout: 10000,
     viewportHeight: 1080,

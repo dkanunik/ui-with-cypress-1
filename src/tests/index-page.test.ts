@@ -8,7 +8,7 @@ describe('[INDEX PAGE]', () => {
         indexPage.open();
     })
 
-    xit('The search input suggest list contains trending tickers', () => {
+    it('[TC-SEARCH-1] The search input suggest list contains trending tickers', () => {
         indexPage
             .getSearchInitComponent()
             .getSearchInput()
@@ -23,7 +23,7 @@ describe('[INDEX PAGE]', () => {
             });
     });
 
-    it('The search input suggest list contains expected symbols', () => {
+    it('[TC-SEARCH-2] The search input suggest list contains expected symbols', () => {
         indexPage
             .getSearchInitComponent()
             .getSearchInput()
@@ -35,7 +35,7 @@ describe('[INDEX PAGE]', () => {
             .getSuggestSymbolList()
             .find('div div:first-child')
             .then(($suggestList) => {
-                expect($suggestList).to.include('AAPL');
+                expect($suggestList[0].innerText).to.equal('AAPL');
             });
     });
 
