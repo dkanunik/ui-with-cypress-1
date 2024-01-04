@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
-    "cy:ui": "cypress run --spec src/tests/**/*.test.ts --browser chrome",
+    "cy:ui": "cypress run --spec src/tests/**/*.test.ts --browser chrome --headed --no-exit",
     "allure-report-generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
     "allure-report-open": "npm run allure-report-generate && allure open ./reports/allure-report",
     "allure-report-clear": "rm -R -f ./reports/allure-report/* && rm -R -f ./reports/allure-results/*",
