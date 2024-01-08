@@ -3,7 +3,7 @@ import {SearchSteps} from "../steps/SearchSteps";
 import IndexPage from "../ui/pages/IndexPage";
 import QuotePage from "../ui/pages/QuotePage";
 
-describe.skip('[SEARCH]', () => {
+describe('[SEARCH]', () => {
 
     beforeEach(function () {
         IndexPage.instance().open();
