@@ -8,7 +8,6 @@ module.exports = defineConfig({
   },
 
   e2e: {
-    baseUrl: 'https://finance.yahoo.com/',
     supportFile: "src/support/index.ts",
     specPattern: "src/tests/**/*.test.{js,jsx,ts,tsx}",
     responseTimeout: 10000,

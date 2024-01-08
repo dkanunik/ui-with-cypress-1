@@ -17,6 +17,7 @@
     ],
     "types": [
       "cypress",
+      "@testing-library/cypress",
       "@types/chai",
       "@types/mocha",
       "node",
