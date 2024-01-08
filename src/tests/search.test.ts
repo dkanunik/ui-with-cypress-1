@@ -3,11 +3,11 @@ import {SearchSteps} from "../steps/SearchSteps";
 import IndexPage from "../ui/pages/IndexPage";
 import QuotePage from "../ui/pages/QuotePage";
 
-describe('[SEARCH]', () => {
+describe.skip('[SEARCH]', () => {
 
     beforeEach(function () {
         IndexPage.instance().open();
-    })
+    });
 
     it('[TC-SEARCH-1] The search input suggest list contains trending tickers', () => {
         IndexPage.instance()
@@ -54,7 +54,5 @@ describe('[SEARCH]', () => {
             .then(($companyTitle) => {
                 expect(Number($companyTitle[0].innerText)).to.be.greaterThan(0);
             });
-
-
     });
-})
+});

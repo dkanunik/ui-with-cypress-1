@@ -23,7 +23,7 @@ class QuotePage extends AbstractPage {
     }
 
     open(): void {
-        cy.visit('/');
+        cy.visit(Cypress.env('FINANCE_BASE_HREF'));
     }
 
     getSearchInitComponent(): SearchInitComponent {

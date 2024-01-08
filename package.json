@@ -6,18 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
-    "cy:ui": "cypress run --spec src/tests/**/*.test.ts --browser chrome --headed --no-exit",
+    "cy:ui": "cypress run --spec src/tests/**/*.test.ts --browser chrome --headed --no-exit --env FINANCE_BASE_HREF=https://finance.yahoo.com",
     "allure-report-generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
     "allure-report-open": "npm run allure-report-generate && allure open ./reports/allure-report",
     "allure-report-clear": "rm -R -f ./reports/allure-report/* && rm -R -f ./reports/allure-results/*",
-    "pretest":"npm run allure:clear",
-    "posttest":"npm run allure-report-open"
+    "pretest": "npm run allure:clear",
+    "posttest": "npm run allure-report-open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.40.1",
+    "@testing-library/cypress": "^10.0.1",
     "cypress": "^13.6.2",
     "typescript": "^5.3.3"
   },
