@@ -8,8 +8,9 @@ module.exports = defineConfig({
   },
 
   e2e: {
-    supportFile: "src/support/index.ts",
-    specPattern: "src/tests/**/*.test.{js,jsx,ts,tsx}",
+    supportFile: 'src/support/index.ts',
+    specPattern: 'src/tests/**/*.test.{js,jsx,ts,tsx}',
+    fixturesFolder: 'src/fixtures',
     responseTimeout: 10000,
     viewportHeight: 1080,
     viewportWidth: 1920,
