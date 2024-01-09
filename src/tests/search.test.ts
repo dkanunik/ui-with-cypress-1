@@ -2,8 +2,20 @@
 import {SearchSteps} from "../steps/SearchSteps";
 import IndexPage from "../ui/pages/IndexPage";
 import QuotePage from "../ui/pages/QuotePage";
+import {SearchDataType} from "types/data/SearchDataType";
 
 describe('[SEARCH]', () => {
+
+    const FXT_TITLE_FOR_SEARCH : string = 'search.fixture';
+
+    let searchTestData:  SearchDataType;
+
+    before(function () {
+        cy.fixture(FXT_TITLE_FOR_SEARCH).then(function (data) {
+            searchTestData = data;
+            cy.log(`[BEFORE TEST]: fixtures have been loaded\n ${JSON.stringify(searchTestData)}`);
+        });
+    });
 
     beforeEach(function () {
         IndexPage.instance().open();
@@ -28,24 +40,24 @@ describe('[SEARCH]', () => {
             .getSearchInitComponent()
             .getSearchInput()
             .click()
-            .type('AAPL');
+            .type(searchTestData.criteria);
 
         IndexPage.instance()
             .getSearchInitComponent()
             .getSuggestSymbolItemsList()
             .then(($suggestList) => {
-                expect($suggestList[0].innerText).to.equal('AAPL');
+                expect($suggestList[0].innerText).to.equal(searchTestData.criteria);
             });
     });
 
     it('[TC-SEARCH-3] The quote page header contains required data', () => {
-        SearchSteps.searchQuoteBy('AAPL');
+        SearchSteps.searchQuoteBy(searchTestData.criteria);
 
         QuotePage.instance()
             .getQuoteHeaderComponent()
             .getCompanyTitle()
             .then(($companyTitle) => {
-                expect($companyTitle[0].innerText).to.equal('Apple Inc. (AAPL)');
+                expect($companyTitle[0].innerText).to.equal(searchTestData.companyName);
             });
 
         QuotePage.instance()
