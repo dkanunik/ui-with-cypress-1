@@ -1,7 +1,7 @@
 name: Cypress UI Tests
 on:
   push:
-    branches: [master]
+    branches: [develop]
 
 jobs:
   cypress-run:
