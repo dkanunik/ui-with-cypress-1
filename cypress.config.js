@@ -19,4 +19,6 @@ module.exports = defineConfig({
     },
   },
 
+  chromeWebSecurity: false,
+  projectId: 'eeyaid',
 });
