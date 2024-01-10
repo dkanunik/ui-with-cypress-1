@@ -21,4 +21,9 @@ module.exports = defineConfig({
 
   chromeWebSecurity: false,
   projectId: 'eeyaid',
+
+  retries: {
+    runMode: 2,
+    openMode: 0
+  }
 });
