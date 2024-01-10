@@ -2,6 +2,7 @@
 
 import IndexPage from "../ui/pages/IndexPage";
 import {SearchDataType} from "types/data/SearchDataType";
+import {TIMEOUT_10_SECONDS} from "../utils/waits/timeouts";
 
 describe('[HEALTH CHECK]', () => {
 
@@ -54,5 +55,46 @@ describe('[HEALTH CHECK]', () => {
     it('[HEALTH-6] Check commands', () => {
         cy.setLocalStorage('test', 'test');
         cy.getLocalStorage('test');
+    });
+
+    /**
+     * Event list: https://docs.cypress.io/api/cypress-api/catalog-of-events
+     * */
+    it('[HEALTH-7] Check alerts obtaining', () => {
+        cy.on('window:alert',  (message) => {
+            cy.log(`[HEALTH-7] ${message}`);
+        })
+    });
+
+    it('[HEALTH-8] Check domains switching', () => {
+        cy.visit('https://www.yahoo.com/everything/');
+        cy.get('a[href="https://www.cashay.com/"]').click();
+        cy.origin('https://www.cashay.com/', () => {
+            cy.url().should('contain', 'cashay');
+            cy.get('div#mrt-node-Nav-0-Navbar')
+                .should('be.visible');
+        });
+    });
+
+    /**
+     * Event list: https://docs.cypress.io/api/cypress-api/catalog-of-events
+     * Node module for work with ifames: https://www.npmjs.com/package/cypress-iframe
+     * */
+    it('[HEALTH-9] Check the player loading in the iframe', () => {
+        cy.on("uncaught:exception", (e, runnable) => {
+            console.log("error", e);
+            console.log("runnable", runnable);
+            return false;
+        });
+
+        cy.visit('https://finance.yahoo.com/');
+        cy.iframe('div.evp-player iframe')
+            .find('div#pframe-player-container')
+            .should('be.visible');
+
+    });
+
+    it('[HEALTH-10] Update the global timeout on the fly', () => {
+        Cypress.config('defaultCommandTimeout', TIMEOUT_10_SECONDS);
     });
 });
