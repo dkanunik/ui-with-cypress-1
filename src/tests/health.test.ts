@@ -47,7 +47,7 @@ describe('[HEALTH CHECK]', () => {
     it('[HEALTH-5] Check fixtures', () => {
         let searchTestData:  SearchDataType;
         cy.fixture('search.fixture').then(function (data) {
-            cy.log(`[ENV-4 TEST]: fixtures have been loaded\n ${JSON.stringify(searchTestData)}`);
+            cy.log(`[HEALTH-5 TEST]: fixtures have been loaded\n ${JSON.stringify(searchTestData)}`);
             expect(data).to.have.ownPropertyDescriptor('criteria');
         });
     });
